@@ -2,6 +2,7 @@
 
 An AI and IT training institute platform built with Next.js — course catalog, blog, job board, enrollment and payment tracking, and an admin dashboard for managing content and applications.
 
+https://new-three-indol.vercel.app/
 
 ## Features
 
