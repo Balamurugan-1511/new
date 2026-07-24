@@ -33,8 +33,8 @@ https://new-three-indol.vercel.app/
 
 1. Clone the repo:
    ```bash
-   git clone https://github.com/Balamurugan-1511/new-static.git
-   cd new-static
+   git clone https://github.com/Balamurugan-1511/new
+   cd new
    ```
 
 2. Install dependencies:
