@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client"
   output   = "../src/generated/prisma"
@@ -11,59 +8,52 @@ datasource db {
 }
 
 model User {
-  id            Int      @id @default(autoincrement())
-  first_name    String   @default("")
-  last_name     String   @default("")
-  name          String   // kept for backward-compat/display — always `${first_name} ${last_name}`
-  email         String   @unique
-  password_hash String
-  role          String
-  org           String?  // organization / company the student belongs to
-  phone         String?  // contact number
-  photo_url     String?
-  education     String?
-  dob           String?
-  gender        String?
-  created_at    DateTime @default(now())
-
-  enrollments   Enrollment[]
-  reviews       Review[]
-  blogs         Blog[]
-  saved_jobs    SavedJob[]
+  id                     Int                @id @default(autoincrement())
+  first_name             String             @default("")
+  last_name              String             @default("")
+  name                   String
+  email                  String             @unique
+  password_hash          String
+  role                   String
+  org                    String?
+  phone                  String?
+  photo_url              String?
+  education              String?
+  dob                    String?
+  gender                 String?
+  created_at             DateTime           @default(now())
+  blogs                  Blog[]
+  enrollments            Enrollment[]
   payment_status_changes PaymentStatusLog[]
+  reviews                Review[]
+  saved_jobs             SavedJob[]
 
   @@map("users")
 }
 
 model Course {
-  id          Int      @id @default(autoincrement())
-  slug        String   @unique
-  title       String
-  category    String
-  course_type String   @default("training") // "exam" | "training_exam" | "coaching" — from the booking sheet's "Course type call" column
-  description String?
-  href        String?
-  duration    String?
-  level       String?
-  price       Decimal
-  is_active   Boolean  @default(true)
-
-  // Admin-editable content for the auto-generated course detail page
-  // (/ai-courses/[slug]) — previously this stuff only existed hardcoded
-  // inside the 6 hand-built static pages, so any course added through the
-  // admin panel had nothing to show here.
-  cover_image_url  String?                 // hero image shown at the top of the course page
-  long_description String[] @default([])   // full "Course Overview" paragraphs (falls back to `description` if empty)
-  what_you_learn   String[] @default([])   // bullet list under "What You Will Learn"
-  curriculum       Json?                   // array of { week, title, topics: string[] }
-  tools            String[] @default([])   // "Tools You'll Use" chips in the sidebar
-  prerequisites    String[] @default([])   // "Prerequisites" bullet list
-  who_is_this_for  String[] @default([])   // "Who Is This For?" bullet list
-
-  enrollments Enrollment[]
-  reviews     Review[]
-  enquiries   Enquiry[]
-  materials   CourseMaterial[]
+  id               Int              @id @default(autoincrement())
+  slug             String           @unique
+  title            String
+  category         String
+  course_type      String           @default("training")
+  description      String?
+  href             String?
+  duration         String?
+  level            String?
+  price            Decimal
+  is_active        Boolean          @default(true)
+  cover_image_url  String?
+  long_description String[]         @default([])
+  what_you_learn   String[]         @default([])
+  curriculum       Json?
+  tools            String[]         @default([])
+  prerequisites    String[]         @default([])
+  who_is_this_for  String[]         @default([])
+  materials        CourseMaterial[]
+  enquiries        Enquiry[]
+  enrollments      Enrollment[]
+  reviews          Review[]
 
   @@map("courses")
 }
@@ -72,54 +62,45 @@ model CourseMaterial {
   id          Int      @id @default(autoincrement())
   course_id   Int
   title       String
-  type        String   // "ppt" | "pdf" | "image" | "video"
-  file_url    String   // uploaded file URL (ppt/pdf/image) or a pasted link (video)
+  type        String
+  file_url    String
   sort_order  Int      @default(0)
   uploaded_at DateTime @default(now())
-
-  course Course @relation(fields: [course_id], references: [id])
+  course      Course   @relation(fields: [course_id], references: [id])
 
   @@map("course_materials")
 }
 
 model Enrollment {
-  id             Int      @id @default(autoincrement())
+  id             Int                @id @default(autoincrement())
   user_id        Int
   course_id      Int
-  payment_status String   @default("pending") // "pending" | "half_paid" | "paid" | "rejected"
-  amount_total   Decimal? // total payable, snapshotted at enrollment time (course price can change later)
-  amount_paid    Decimal  @default(0) // confirmed by admin after checking the UTR — never set by the student
-  utr            String?  @unique // UPI transaction ref the student claims to have paid with — unique so the
-                                   // same UTR can't be submitted twice (across any student/course)
-  enrolled_at    DateTime @default(now())
-  verified_at    DateTime? // when an admin last confirmed/updated the payment status
-  next_due_at    DateTime? // installment plans only: date the remaining balance is due. If this passes while
-                            // a balance is still owed, course-material access is automatically treated as
-                            // locked on the next request — no admin action required to revoke it.
-
-  user   User   @relation(fields: [user_id], references: [id])
-  course Course @relation(fields: [course_id], references: [id])
-  status_logs PaymentStatusLog[]
+  payment_status String             @default("pending")
+  amount_total   Decimal?
+  amount_paid    Decimal            @default(0)
+  utr            String?            @unique
+  enrolled_at    DateTime           @default(now())
+  verified_at    DateTime?
+  next_due_at    DateTime?
+  course         Course             @relation(fields: [course_id], references: [id])
+  user           User               @relation(fields: [user_id], references: [id])
+  status_logs    PaymentStatusLog[]
 
   @@map("enrollments")
 }
 
-// Audit trail: every time an admin changes an enrollment's payment_status
-// (including the very first "pending" -> ... transition), one row is written
-// here. Never updated or deleted — append-only history.
 model PaymentStatusLog {
-  id             Int      @id @default(autoincrement())
-  enrollment_id  Int
-  admin_id       Int?     // nullable so history survives even if the admin's user row is later removed
-  admin_name     String   // snapshotted at the time of the change, in case admin_id becomes stale
-  from_status    String?  // null for the very first log row on an enrollment
-  to_status      String
-  amount_paid    Decimal
-  note           String?  // optional reason, e.g. why a payment was rejected
-  created_at     DateTime @default(now())
-
-  enrollment Enrollment @relation(fields: [enrollment_id], references: [id])
-  admin      User?      @relation(fields: [admin_id], references: [id])
+  id            Int        @id @default(autoincrement())
+  enrollment_id Int
+  admin_id      Int?
+  admin_name    String
+  from_status   String?
+  to_status     String
+  amount_paid   Decimal
+  note          String?
+  created_at    DateTime   @default(now())
+  admin         User?      @relation(fields: [admin_id], references: [id])
+  enrollment    Enrollment @relation(fields: [enrollment_id], references: [id])
 
   @@map("payment_status_logs")
 }
@@ -133,8 +114,7 @@ model Enquiry {
   message    String
   status     String   @default("new")
   created_at DateTime @default(now())
-
-  course Course? @relation(fields: [course_id], references: [id])
+  course     Course?  @relation(fields: [course_id], references: [id])
 
   @@map("enquiries")
 }
@@ -146,9 +126,8 @@ model Review {
   rating     Int
   comment    String?
   created_at DateTime @default(now())
-
-  user   User   @relation(fields: [user_id], references: [id])
-  course Course @relation(fields: [course_id], references: [id])
+  course     Course   @relation(fields: [course_id], references: [id])
+  user       User     @relation(fields: [user_id], references: [id])
 
   @@map("reviews")
 }
@@ -165,55 +144,51 @@ model Blog {
   image_alt    String?
   status       String   @default("published")
   published_at DateTime @default(now())
-
-  author User @relation(fields: [author_id], references: [id])
+  author       User     @relation(fields: [author_id], references: [id])
 
   @@map("blogs")
 }
 
 model Job {
-  id                Int      @id @default(autoincrement())
-  title             String
-  department        String?
-  location          String?
-  work_mode         String?
-  employment_type   String?  @default("Full-time")
-  experience_level  String?
-  description       String?
-  requirements      String[] @default([])
-  is_active         Boolean  @default(true)
-
-  applications JobApplication[]
-  saved_by     SavedJob[]
+  id               Int              @id @default(autoincrement())
+  title            String
+  department       String?
+  location         String?
+  work_mode        String?
+  employment_type  String?          @default("Full-time")
+  experience_level String?
+  description      String?
+  requirements     String[]         @default([])
+  is_active        Boolean          @default(true)
+  applications     JobApplication[]
+  saved_by         SavedJob[]
 
   @@map("jobs")
 }
 
 model SavedJob {
-  id        Int      @id @default(autoincrement())
-  user_id   Int
-  job_id    Int
-  saved_at  DateTime @default(now())
-
-  user User @relation(fields: [user_id], references: [id])
-  job  Job  @relation(fields: [job_id], references: [id])
+  id       Int      @id @default(autoincrement())
+  user_id  Int
+  job_id   Int
+  saved_at DateTime @default(now())
+  job      Job      @relation(fields: [job_id], references: [id])
+  user     User     @relation(fields: [user_id], references: [id])
 
   @@unique([user_id, job_id])
   @@map("saved_jobs")
 }
 
 model JobApplication {
-  id          Int      @id @default(autoincrement())
-  job_id      Int?
-  job_title   String?
-  name        String
-  email       String
-  phone       String?
-  resume_url  String?
-  status      String   @default("new")
-  applied_at  DateTime @default(now())
-
-  job Job? @relation(fields: [job_id], references: [id])
+  id         Int      @id @default(autoincrement())
+  job_id     Int?
+  job_title  String?
+  name       String
+  email      String
+  phone      String?
+  resume_url String?
+  status     String   @default("new")
+  applied_at DateTime @default(now())
+  job        Job?     @relation(fields: [job_id], references: [id])
 
   @@map("job_applications")
 }

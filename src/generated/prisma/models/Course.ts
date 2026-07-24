@@ -300,10 +300,10 @@ export type CourseWhereInput = {
   tools?: Prisma.StringNullableListFilter<"Course">
   prerequisites?: Prisma.StringNullableListFilter<"Course">
   who_is_this_for?: Prisma.StringNullableListFilter<"Course">
+  materials?: Prisma.CourseMaterialListRelationFilter
+  enquiries?: Prisma.EnquiryListRelationFilter
   enrollments?: Prisma.EnrollmentListRelationFilter
   reviews?: Prisma.ReviewListRelationFilter
-  enquiries?: Prisma.EnquiryListRelationFilter
-  materials?: Prisma.CourseMaterialListRelationFilter
 }
 
 export type CourseOrderByWithRelationInput = {
@@ -325,10 +325,10 @@ export type CourseOrderByWithRelationInput = {
   tools?: Prisma.SortOrder
   prerequisites?: Prisma.SortOrder
   who_is_this_for?: Prisma.SortOrder
+  materials?: Prisma.CourseMaterialOrderByRelationAggregateInput
+  enquiries?: Prisma.EnquiryOrderByRelationAggregateInput
   enrollments?: Prisma.EnrollmentOrderByRelationAggregateInput
   reviews?: Prisma.ReviewOrderByRelationAggregateInput
-  enquiries?: Prisma.EnquiryOrderByRelationAggregateInput
-  materials?: Prisma.CourseMaterialOrderByRelationAggregateInput
 }
 
 export type CourseWhereUniqueInput = Prisma.AtLeast<{
@@ -353,10 +353,10 @@ export type CourseWhereUniqueInput = Prisma.AtLeast<{
   tools?: Prisma.StringNullableListFilter<"Course">
   prerequisites?: Prisma.StringNullableListFilter<"Course">
   who_is_this_for?: Prisma.StringNullableListFilter<"Course">
+  materials?: Prisma.CourseMaterialListRelationFilter
+  enquiries?: Prisma.EnquiryListRelationFilter
   enrollments?: Prisma.EnrollmentListRelationFilter
   reviews?: Prisma.ReviewListRelationFilter
-  enquiries?: Prisma.EnquiryListRelationFilter
-  materials?: Prisma.CourseMaterialListRelationFilter
 }, "id" | "slug">
 
 export type CourseOrderByWithAggregationInput = {
@@ -427,10 +427,10 @@ export type CourseCreateInput = {
   tools?: Prisma.CourseCreatetoolsInput | string[]
   prerequisites?: Prisma.CourseCreateprerequisitesInput | string[]
   who_is_this_for?: Prisma.CourseCreatewho_is_this_forInput | string[]
+  materials?: Prisma.CourseMaterialCreateNestedManyWithoutCourseInput
+  enquiries?: Prisma.EnquiryCreateNestedManyWithoutCourseInput
   enrollments?: Prisma.EnrollmentCreateNestedManyWithoutCourseInput
   reviews?: Prisma.ReviewCreateNestedManyWithoutCourseInput
-  enquiries?: Prisma.EnquiryCreateNestedManyWithoutCourseInput
-  materials?: Prisma.CourseMaterialCreateNestedManyWithoutCourseInput
 }
 
 export type CourseUncheckedCreateInput = {
@@ -452,10 +452,10 @@ export type CourseUncheckedCreateInput = {
   tools?: Prisma.CourseCreatetoolsInput | string[]
   prerequisites?: Prisma.CourseCreateprerequisitesInput | string[]
   who_is_this_for?: Prisma.CourseCreatewho_is_this_forInput | string[]
+  materials?: Prisma.CourseMaterialUncheckedCreateNestedManyWithoutCourseInput
+  enquiries?: Prisma.EnquiryUncheckedCreateNestedManyWithoutCourseInput
   enrollments?: Prisma.EnrollmentUncheckedCreateNestedManyWithoutCourseInput
   reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutCourseInput
-  enquiries?: Prisma.EnquiryUncheckedCreateNestedManyWithoutCourseInput
-  materials?: Prisma.CourseMaterialUncheckedCreateNestedManyWithoutCourseInput
 }
 
 export type CourseUpdateInput = {
@@ -476,10 +476,10 @@ export type CourseUpdateInput = {
   tools?: Prisma.CourseUpdatetoolsInput | string[]
   prerequisites?: Prisma.CourseUpdateprerequisitesInput | string[]
   who_is_this_for?: Prisma.CourseUpdatewho_is_this_forInput | string[]
+  materials?: Prisma.CourseMaterialUpdateManyWithoutCourseNestedInput
+  enquiries?: Prisma.EnquiryUpdateManyWithoutCourseNestedInput
   enrollments?: Prisma.EnrollmentUpdateManyWithoutCourseNestedInput
   reviews?: Prisma.ReviewUpdateManyWithoutCourseNestedInput
-  enquiries?: Prisma.EnquiryUpdateManyWithoutCourseNestedInput
-  materials?: Prisma.CourseMaterialUpdateManyWithoutCourseNestedInput
 }
 
 export type CourseUncheckedUpdateInput = {
@@ -501,10 +501,10 @@ export type CourseUncheckedUpdateInput = {
   tools?: Prisma.CourseUpdatetoolsInput | string[]
   prerequisites?: Prisma.CourseUpdateprerequisitesInput | string[]
   who_is_this_for?: Prisma.CourseUpdatewho_is_this_forInput | string[]
+  materials?: Prisma.CourseMaterialUncheckedUpdateManyWithoutCourseNestedInput
+  enquiries?: Prisma.EnquiryUncheckedUpdateManyWithoutCourseNestedInput
   enrollments?: Prisma.EnrollmentUncheckedUpdateManyWithoutCourseNestedInput
   reviews?: Prisma.ReviewUncheckedUpdateManyWithoutCourseNestedInput
-  enquiries?: Prisma.EnquiryUncheckedUpdateManyWithoutCourseNestedInput
-  materials?: Prisma.CourseMaterialUncheckedUpdateManyWithoutCourseNestedInput
 }
 
 export type CourseCreateManyInput = {
@@ -781,9 +781,9 @@ export type CourseCreateWithoutMaterialsInput = {
   tools?: Prisma.CourseCreatetoolsInput | string[]
   prerequisites?: Prisma.CourseCreateprerequisitesInput | string[]
   who_is_this_for?: Prisma.CourseCreatewho_is_this_forInput | string[]
+  enquiries?: Prisma.EnquiryCreateNestedManyWithoutCourseInput
   enrollments?: Prisma.EnrollmentCreateNestedManyWithoutCourseInput
   reviews?: Prisma.ReviewCreateNestedManyWithoutCourseInput
-  enquiries?: Prisma.EnquiryCreateNestedManyWithoutCourseInput
 }
 
 export type CourseUncheckedCreateWithoutMaterialsInput = {
@@ -805,9 +805,9 @@ export type CourseUncheckedCreateWithoutMaterialsInput = {
   tools?: Prisma.CourseCreatetoolsInput | string[]
   prerequisites?: Prisma.CourseCreateprerequisitesInput | string[]
   who_is_this_for?: Prisma.CourseCreatewho_is_this_forInput | string[]
+  enquiries?: Prisma.EnquiryUncheckedCreateNestedManyWithoutCourseInput
   enrollments?: Prisma.EnrollmentUncheckedCreateNestedManyWithoutCourseInput
   reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutCourseInput
-  enquiries?: Prisma.EnquiryUncheckedCreateNestedManyWithoutCourseInput
 }
 
 export type CourseCreateOrConnectWithoutMaterialsInput = {
@@ -844,9 +844,9 @@ export type CourseUpdateWithoutMaterialsInput = {
   tools?: Prisma.CourseUpdatetoolsInput | string[]
   prerequisites?: Prisma.CourseUpdateprerequisitesInput | string[]
   who_is_this_for?: Prisma.CourseUpdatewho_is_this_forInput | string[]
+  enquiries?: Prisma.EnquiryUpdateManyWithoutCourseNestedInput
   enrollments?: Prisma.EnrollmentUpdateManyWithoutCourseNestedInput
   reviews?: Prisma.ReviewUpdateManyWithoutCourseNestedInput
-  enquiries?: Prisma.EnquiryUpdateManyWithoutCourseNestedInput
 }
 
 export type CourseUncheckedUpdateWithoutMaterialsInput = {
@@ -868,9 +868,9 @@ export type CourseUncheckedUpdateWithoutMaterialsInput = {
   tools?: Prisma.CourseUpdatetoolsInput | string[]
   prerequisites?: Prisma.CourseUpdateprerequisitesInput | string[]
   who_is_this_for?: Prisma.CourseUpdatewho_is_this_forInput | string[]
+  enquiries?: Prisma.EnquiryUncheckedUpdateManyWithoutCourseNestedInput
   enrollments?: Prisma.EnrollmentUncheckedUpdateManyWithoutCourseNestedInput
   reviews?: Prisma.ReviewUncheckedUpdateManyWithoutCourseNestedInput
-  enquiries?: Prisma.EnquiryUncheckedUpdateManyWithoutCourseNestedInput
 }
 
 export type CourseCreateWithoutEnrollmentsInput = {
@@ -891,9 +891,9 @@ export type CourseCreateWithoutEnrollmentsInput = {
   tools?: Prisma.CourseCreatetoolsInput | string[]
   prerequisites?: Prisma.CourseCreateprerequisitesInput | string[]
   who_is_this_for?: Prisma.CourseCreatewho_is_this_forInput | string[]
-  reviews?: Prisma.ReviewCreateNestedManyWithoutCourseInput
-  enquiries?: Prisma.EnquiryCreateNestedManyWithoutCourseInput
   materials?: Prisma.CourseMaterialCreateNestedManyWithoutCourseInput
+  enquiries?: Prisma.EnquiryCreateNestedManyWithoutCourseInput
+  reviews?: Prisma.ReviewCreateNestedManyWithoutCourseInput
 }
 
 export type CourseUncheckedCreateWithoutEnrollmentsInput = {
@@ -915,9 +915,9 @@ export type CourseUncheckedCreateWithoutEnrollmentsInput = {
   tools?: Prisma.CourseCreatetoolsInput | string[]
   prerequisites?: Prisma.CourseCreateprerequisitesInput | string[]
   who_is_this_for?: Prisma.CourseCreatewho_is_this_forInput | string[]
-  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutCourseInput
-  enquiries?: Prisma.EnquiryUncheckedCreateNestedManyWithoutCourseInput
   materials?: Prisma.CourseMaterialUncheckedCreateNestedManyWithoutCourseInput
+  enquiries?: Prisma.EnquiryUncheckedCreateNestedManyWithoutCourseInput
+  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutCourseInput
 }
 
 export type CourseCreateOrConnectWithoutEnrollmentsInput = {
@@ -954,9 +954,9 @@ export type CourseUpdateWithoutEnrollmentsInput = {
   tools?: Prisma.CourseUpdatetoolsInput | string[]
   prerequisites?: Prisma.CourseUpdateprerequisitesInput | string[]
   who_is_this_for?: Prisma.CourseUpdatewho_is_this_forInput | string[]
-  reviews?: Prisma.ReviewUpdateManyWithoutCourseNestedInput
-  enquiries?: Prisma.EnquiryUpdateManyWithoutCourseNestedInput
   materials?: Prisma.CourseMaterialUpdateManyWithoutCourseNestedInput
+  enquiries?: Prisma.EnquiryUpdateManyWithoutCourseNestedInput
+  reviews?: Prisma.ReviewUpdateManyWithoutCourseNestedInput
 }
 
 export type CourseUncheckedUpdateWithoutEnrollmentsInput = {
@@ -978,9 +978,9 @@ export type CourseUncheckedUpdateWithoutEnrollmentsInput = {
   tools?: Prisma.CourseUpdatetoolsInput | string[]
   prerequisites?: Prisma.CourseUpdateprerequisitesInput | string[]
   who_is_this_for?: Prisma.CourseUpdatewho_is_this_forInput | string[]
-  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutCourseNestedInput
-  enquiries?: Prisma.EnquiryUncheckedUpdateManyWithoutCourseNestedInput
   materials?: Prisma.CourseMaterialUncheckedUpdateManyWithoutCourseNestedInput
+  enquiries?: Prisma.EnquiryUncheckedUpdateManyWithoutCourseNestedInput
+  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutCourseNestedInput
 }
 
 export type CourseCreateWithoutEnquiriesInput = {
@@ -1001,9 +1001,9 @@ export type CourseCreateWithoutEnquiriesInput = {
   tools?: Prisma.CourseCreatetoolsInput | string[]
   prerequisites?: Prisma.CourseCreateprerequisitesInput | string[]
   who_is_this_for?: Prisma.CourseCreatewho_is_this_forInput | string[]
+  materials?: Prisma.CourseMaterialCreateNestedManyWithoutCourseInput
   enrollments?: Prisma.EnrollmentCreateNestedManyWithoutCourseInput
   reviews?: Prisma.ReviewCreateNestedManyWithoutCourseInput
-  materials?: Prisma.CourseMaterialCreateNestedManyWithoutCourseInput
 }
 
 export type CourseUncheckedCreateWithoutEnquiriesInput = {
@@ -1025,9 +1025,9 @@ export type CourseUncheckedCreateWithoutEnquiriesInput = {
   tools?: Prisma.CourseCreatetoolsInput | string[]
   prerequisites?: Prisma.CourseCreateprerequisitesInput | string[]
   who_is_this_for?: Prisma.CourseCreatewho_is_this_forInput | string[]
+  materials?: Prisma.CourseMaterialUncheckedCreateNestedManyWithoutCourseInput
   enrollments?: Prisma.EnrollmentUncheckedCreateNestedManyWithoutCourseInput
   reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutCourseInput
-  materials?: Prisma.CourseMaterialUncheckedCreateNestedManyWithoutCourseInput
 }
 
 export type CourseCreateOrConnectWithoutEnquiriesInput = {
@@ -1064,9 +1064,9 @@ export type CourseUpdateWithoutEnquiriesInput = {
   tools?: Prisma.CourseUpdatetoolsInput | string[]
   prerequisites?: Prisma.CourseUpdateprerequisitesInput | string[]
   who_is_this_for?: Prisma.CourseUpdatewho_is_this_forInput | string[]
+  materials?: Prisma.CourseMaterialUpdateManyWithoutCourseNestedInput
   enrollments?: Prisma.EnrollmentUpdateManyWithoutCourseNestedInput
   reviews?: Prisma.ReviewUpdateManyWithoutCourseNestedInput
-  materials?: Prisma.CourseMaterialUpdateManyWithoutCourseNestedInput
 }
 
 export type CourseUncheckedUpdateWithoutEnquiriesInput = {
@@ -1088,9 +1088,9 @@ export type CourseUncheckedUpdateWithoutEnquiriesInput = {
   tools?: Prisma.CourseUpdatetoolsInput | string[]
   prerequisites?: Prisma.CourseUpdateprerequisitesInput | string[]
   who_is_this_for?: Prisma.CourseUpdatewho_is_this_forInput | string[]
+  materials?: Prisma.CourseMaterialUncheckedUpdateManyWithoutCourseNestedInput
   enrollments?: Prisma.EnrollmentUncheckedUpdateManyWithoutCourseNestedInput
   reviews?: Prisma.ReviewUncheckedUpdateManyWithoutCourseNestedInput
-  materials?: Prisma.CourseMaterialUncheckedUpdateManyWithoutCourseNestedInput
 }
 
 export type CourseCreateWithoutReviewsInput = {
@@ -1111,9 +1111,9 @@ export type CourseCreateWithoutReviewsInput = {
   tools?: Prisma.CourseCreatetoolsInput | string[]
   prerequisites?: Prisma.CourseCreateprerequisitesInput | string[]
   who_is_this_for?: Prisma.CourseCreatewho_is_this_forInput | string[]
-  enrollments?: Prisma.EnrollmentCreateNestedManyWithoutCourseInput
-  enquiries?: Prisma.EnquiryCreateNestedManyWithoutCourseInput
   materials?: Prisma.CourseMaterialCreateNestedManyWithoutCourseInput
+  enquiries?: Prisma.EnquiryCreateNestedManyWithoutCourseInput
+  enrollments?: Prisma.EnrollmentCreateNestedManyWithoutCourseInput
 }
 
 export type CourseUncheckedCreateWithoutReviewsInput = {
@@ -1135,9 +1135,9 @@ export type CourseUncheckedCreateWithoutReviewsInput = {
   tools?: Prisma.CourseCreatetoolsInput | string[]
   prerequisites?: Prisma.CourseCreateprerequisitesInput | string[]
   who_is_this_for?: Prisma.CourseCreatewho_is_this_forInput | string[]
-  enrollments?: Prisma.EnrollmentUncheckedCreateNestedManyWithoutCourseInput
-  enquiries?: Prisma.EnquiryUncheckedCreateNestedManyWithoutCourseInput
   materials?: Prisma.CourseMaterialUncheckedCreateNestedManyWithoutCourseInput
+  enquiries?: Prisma.EnquiryUncheckedCreateNestedManyWithoutCourseInput
+  enrollments?: Prisma.EnrollmentUncheckedCreateNestedManyWithoutCourseInput
 }
 
 export type CourseCreateOrConnectWithoutReviewsInput = {
@@ -1174,9 +1174,9 @@ export type CourseUpdateWithoutReviewsInput = {
   tools?: Prisma.CourseUpdatetoolsInput | string[]
   prerequisites?: Prisma.CourseUpdateprerequisitesInput | string[]
   who_is_this_for?: Prisma.CourseUpdatewho_is_this_forInput | string[]
-  enrollments?: Prisma.EnrollmentUpdateManyWithoutCourseNestedInput
-  enquiries?: Prisma.EnquiryUpdateManyWithoutCourseNestedInput
   materials?: Prisma.CourseMaterialUpdateManyWithoutCourseNestedInput
+  enquiries?: Prisma.EnquiryUpdateManyWithoutCourseNestedInput
+  enrollments?: Prisma.EnrollmentUpdateManyWithoutCourseNestedInput
 }
 
 export type CourseUncheckedUpdateWithoutReviewsInput = {
@@ -1198,9 +1198,9 @@ export type CourseUncheckedUpdateWithoutReviewsInput = {
   tools?: Prisma.CourseUpdatetoolsInput | string[]
   prerequisites?: Prisma.CourseUpdateprerequisitesInput | string[]
   who_is_this_for?: Prisma.CourseUpdatewho_is_this_forInput | string[]
-  enrollments?: Prisma.EnrollmentUncheckedUpdateManyWithoutCourseNestedInput
-  enquiries?: Prisma.EnquiryUncheckedUpdateManyWithoutCourseNestedInput
   materials?: Prisma.CourseMaterialUncheckedUpdateManyWithoutCourseNestedInput
+  enquiries?: Prisma.EnquiryUncheckedUpdateManyWithoutCourseNestedInput
+  enrollments?: Prisma.EnrollmentUncheckedUpdateManyWithoutCourseNestedInput
 }
 
 
@@ -1209,17 +1209,17 @@ export type CourseUncheckedUpdateWithoutReviewsInput = {
  */
 
 export type CourseCountOutputType = {
+  materials: number
+  enquiries: number
   enrollments: number
   reviews: number
-  enquiries: number
-  materials: number
 }
 
 export type CourseCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  materials?: boolean | CourseCountOutputTypeCountMaterialsArgs
+  enquiries?: boolean | CourseCountOutputTypeCountEnquiriesArgs
   enrollments?: boolean | CourseCountOutputTypeCountEnrollmentsArgs
   reviews?: boolean | CourseCountOutputTypeCountReviewsArgs
-  enquiries?: boolean | CourseCountOutputTypeCountEnquiriesArgs
-  materials?: boolean | CourseCountOutputTypeCountMaterialsArgs
 }
 
 /**
@@ -1235,15 +1235,8 @@ export type CourseCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Exten
 /**
  * CourseCountOutputType without action
  */
-export type CourseCountOutputTypeCountEnrollmentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.EnrollmentWhereInput
-}
-
-/**
- * CourseCountOutputType without action
- */
-export type CourseCountOutputTypeCountReviewsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.ReviewWhereInput
+export type CourseCountOutputTypeCountMaterialsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.CourseMaterialWhereInput
 }
 
 /**
@@ -1256,8 +1249,15 @@ export type CourseCountOutputTypeCountEnquiriesArgs<ExtArgs extends runtime.Type
 /**
  * CourseCountOutputType without action
  */
-export type CourseCountOutputTypeCountMaterialsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.CourseMaterialWhereInput
+export type CourseCountOutputTypeCountEnrollmentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.EnrollmentWhereInput
+}
+
+/**
+ * CourseCountOutputType without action
+ */
+export type CourseCountOutputTypeCountReviewsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ReviewWhereInput
 }
 
 
@@ -1280,10 +1280,10 @@ export type CourseSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   tools?: boolean
   prerequisites?: boolean
   who_is_this_for?: boolean
+  materials?: boolean | Prisma.Course$materialsArgs<ExtArgs>
+  enquiries?: boolean | Prisma.Course$enquiriesArgs<ExtArgs>
   enrollments?: boolean | Prisma.Course$enrollmentsArgs<ExtArgs>
   reviews?: boolean | Prisma.Course$reviewsArgs<ExtArgs>
-  enquiries?: boolean | Prisma.Course$enquiriesArgs<ExtArgs>
-  materials?: boolean | Prisma.Course$materialsArgs<ExtArgs>
   _count?: boolean | Prisma.CourseCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["course"]>
 
@@ -1352,10 +1352,10 @@ export type CourseSelectScalar = {
 
 export type CourseOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "slug" | "title" | "category" | "course_type" | "description" | "href" | "duration" | "level" | "price" | "is_active" | "cover_image_url" | "long_description" | "what_you_learn" | "curriculum" | "tools" | "prerequisites" | "who_is_this_for", ExtArgs["result"]["course"]>
 export type CourseInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  materials?: boolean | Prisma.Course$materialsArgs<ExtArgs>
+  enquiries?: boolean | Prisma.Course$enquiriesArgs<ExtArgs>
   enrollments?: boolean | Prisma.Course$enrollmentsArgs<ExtArgs>
   reviews?: boolean | Prisma.Course$reviewsArgs<ExtArgs>
-  enquiries?: boolean | Prisma.Course$enquiriesArgs<ExtArgs>
-  materials?: boolean | Prisma.Course$materialsArgs<ExtArgs>
   _count?: boolean | Prisma.CourseCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type CourseIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -1364,10 +1364,10 @@ export type CourseIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Exten
 export type $CoursePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Course"
   objects: {
+    materials: Prisma.$CourseMaterialPayload<ExtArgs>[]
+    enquiries: Prisma.$EnquiryPayload<ExtArgs>[]
     enrollments: Prisma.$EnrollmentPayload<ExtArgs>[]
     reviews: Prisma.$ReviewPayload<ExtArgs>[]
-    enquiries: Prisma.$EnquiryPayload<ExtArgs>[]
-    materials: Prisma.$CourseMaterialPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -1782,10 +1782,10 @@ readonly fields: CourseFieldRefs;
  */
 export interface Prisma__CourseClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
+  materials<T extends Prisma.Course$materialsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Course$materialsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CourseMaterialPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  enquiries<T extends Prisma.Course$enquiriesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Course$enquiriesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$EnquiryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   enrollments<T extends Prisma.Course$enrollmentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Course$enrollmentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$EnrollmentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   reviews<T extends Prisma.Course$reviewsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Course$reviewsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ReviewPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  enquiries<T extends Prisma.Course$enquiriesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Course$enquiriesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$EnquiryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  materials<T extends Prisma.Course$materialsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Course$materialsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CourseMaterialPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2226,6 +2226,54 @@ export type CourseDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Intern
 }
 
 /**
+ * Course.materials
+ */
+export type Course$materialsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the CourseMaterial
+   */
+  select?: Prisma.CourseMaterialSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the CourseMaterial
+   */
+  omit?: Prisma.CourseMaterialOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.CourseMaterialInclude<ExtArgs> | null
+  where?: Prisma.CourseMaterialWhereInput
+  orderBy?: Prisma.CourseMaterialOrderByWithRelationInput | Prisma.CourseMaterialOrderByWithRelationInput[]
+  cursor?: Prisma.CourseMaterialWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.CourseMaterialScalarFieldEnum | Prisma.CourseMaterialScalarFieldEnum[]
+}
+
+/**
+ * Course.enquiries
+ */
+export type Course$enquiriesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Enquiry
+   */
+  select?: Prisma.EnquirySelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Enquiry
+   */
+  omit?: Prisma.EnquiryOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.EnquiryInclude<ExtArgs> | null
+  where?: Prisma.EnquiryWhereInput
+  orderBy?: Prisma.EnquiryOrderByWithRelationInput | Prisma.EnquiryOrderByWithRelationInput[]
+  cursor?: Prisma.EnquiryWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.EnquiryScalarFieldEnum | Prisma.EnquiryScalarFieldEnum[]
+}
+
+/**
  * Course.enrollments
  */
 export type Course$enrollmentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -2271,54 +2319,6 @@ export type Course$reviewsArgs<ExtArgs extends runtime.Types.Extensions.Internal
   take?: number
   skip?: number
   distinct?: Prisma.ReviewScalarFieldEnum | Prisma.ReviewScalarFieldEnum[]
-}
-
-/**
- * Course.enquiries
- */
-export type Course$enquiriesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the Enquiry
-   */
-  select?: Prisma.EnquirySelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the Enquiry
-   */
-  omit?: Prisma.EnquiryOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.EnquiryInclude<ExtArgs> | null
-  where?: Prisma.EnquiryWhereInput
-  orderBy?: Prisma.EnquiryOrderByWithRelationInput | Prisma.EnquiryOrderByWithRelationInput[]
-  cursor?: Prisma.EnquiryWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.EnquiryScalarFieldEnum | Prisma.EnquiryScalarFieldEnum[]
-}
-
-/**
- * Course.materials
- */
-export type Course$materialsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the CourseMaterial
-   */
-  select?: Prisma.CourseMaterialSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the CourseMaterial
-   */
-  omit?: Prisma.CourseMaterialOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.CourseMaterialInclude<ExtArgs> | null
-  where?: Prisma.CourseMaterialWhereInput
-  orderBy?: Prisma.CourseMaterialOrderByWithRelationInput | Prisma.CourseMaterialOrderByWithRelationInput[]
-  cursor?: Prisma.CourseMaterialWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.CourseMaterialScalarFieldEnum | Prisma.CourseMaterialScalarFieldEnum[]
 }
 
 /**

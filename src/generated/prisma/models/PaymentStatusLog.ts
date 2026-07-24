@@ -260,8 +260,8 @@ export type PaymentStatusLogWhereInput = {
   amount_paid?: Prisma.DecimalFilter<"PaymentStatusLog"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   note?: Prisma.StringNullableFilter<"PaymentStatusLog"> | string | null
   created_at?: Prisma.DateTimeFilter<"PaymentStatusLog"> | Date | string
-  enrollment?: Prisma.XOR<Prisma.EnrollmentScalarRelationFilter, Prisma.EnrollmentWhereInput>
   admin?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
+  enrollment?: Prisma.XOR<Prisma.EnrollmentScalarRelationFilter, Prisma.EnrollmentWhereInput>
 }
 
 export type PaymentStatusLogOrderByWithRelationInput = {
@@ -274,8 +274,8 @@ export type PaymentStatusLogOrderByWithRelationInput = {
   amount_paid?: Prisma.SortOrder
   note?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrder
-  enrollment?: Prisma.EnrollmentOrderByWithRelationInput
   admin?: Prisma.UserOrderByWithRelationInput
+  enrollment?: Prisma.EnrollmentOrderByWithRelationInput
 }
 
 export type PaymentStatusLogWhereUniqueInput = Prisma.AtLeast<{
@@ -291,8 +291,8 @@ export type PaymentStatusLogWhereUniqueInput = Prisma.AtLeast<{
   amount_paid?: Prisma.DecimalFilter<"PaymentStatusLog"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   note?: Prisma.StringNullableFilter<"PaymentStatusLog"> | string | null
   created_at?: Prisma.DateTimeFilter<"PaymentStatusLog"> | Date | string
-  enrollment?: Prisma.XOR<Prisma.EnrollmentScalarRelationFilter, Prisma.EnrollmentWhereInput>
   admin?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
+  enrollment?: Prisma.XOR<Prisma.EnrollmentScalarRelationFilter, Prisma.EnrollmentWhereInput>
 }, "id">
 
 export type PaymentStatusLogOrderByWithAggregationInput = {
@@ -334,8 +334,8 @@ export type PaymentStatusLogCreateInput = {
   amount_paid: runtime.Decimal | runtime.DecimalJsLike | number | string
   note?: string | null
   created_at?: Date | string
-  enrollment: Prisma.EnrollmentCreateNestedOneWithoutStatus_logsInput
   admin?: Prisma.UserCreateNestedOneWithoutPayment_status_changesInput
+  enrollment: Prisma.EnrollmentCreateNestedOneWithoutStatus_logsInput
 }
 
 export type PaymentStatusLogUncheckedCreateInput = {
@@ -357,8 +357,8 @@ export type PaymentStatusLogUpdateInput = {
   amount_paid?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   note?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  enrollment?: Prisma.EnrollmentUpdateOneRequiredWithoutStatus_logsNestedInput
   admin?: Prisma.UserUpdateOneWithoutPayment_status_changesNestedInput
+  enrollment?: Prisma.EnrollmentUpdateOneRequiredWithoutStatus_logsNestedInput
 }
 
 export type PaymentStatusLogUncheckedUpdateInput = {
@@ -765,8 +765,8 @@ export type PaymentStatusLogSelect<ExtArgs extends runtime.Types.Extensions.Inte
   amount_paid?: boolean
   note?: boolean
   created_at?: boolean
-  enrollment?: boolean | Prisma.EnrollmentDefaultArgs<ExtArgs>
   admin?: boolean | Prisma.PaymentStatusLog$adminArgs<ExtArgs>
+  enrollment?: boolean | Prisma.EnrollmentDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["paymentStatusLog"]>
 
 export type PaymentStatusLogSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -779,8 +779,8 @@ export type PaymentStatusLogSelectCreateManyAndReturn<ExtArgs extends runtime.Ty
   amount_paid?: boolean
   note?: boolean
   created_at?: boolean
-  enrollment?: boolean | Prisma.EnrollmentDefaultArgs<ExtArgs>
   admin?: boolean | Prisma.PaymentStatusLog$adminArgs<ExtArgs>
+  enrollment?: boolean | Prisma.EnrollmentDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["paymentStatusLog"]>
 
 export type PaymentStatusLogSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -793,8 +793,8 @@ export type PaymentStatusLogSelectUpdateManyAndReturn<ExtArgs extends runtime.Ty
   amount_paid?: boolean
   note?: boolean
   created_at?: boolean
-  enrollment?: boolean | Prisma.EnrollmentDefaultArgs<ExtArgs>
   admin?: boolean | Prisma.PaymentStatusLog$adminArgs<ExtArgs>
+  enrollment?: boolean | Prisma.EnrollmentDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["paymentStatusLog"]>
 
 export type PaymentStatusLogSelectScalar = {
@@ -811,23 +811,23 @@ export type PaymentStatusLogSelectScalar = {
 
 export type PaymentStatusLogOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "enrollment_id" | "admin_id" | "admin_name" | "from_status" | "to_status" | "amount_paid" | "note" | "created_at", ExtArgs["result"]["paymentStatusLog"]>
 export type PaymentStatusLogInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  enrollment?: boolean | Prisma.EnrollmentDefaultArgs<ExtArgs>
   admin?: boolean | Prisma.PaymentStatusLog$adminArgs<ExtArgs>
+  enrollment?: boolean | Prisma.EnrollmentDefaultArgs<ExtArgs>
 }
 export type PaymentStatusLogIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  enrollment?: boolean | Prisma.EnrollmentDefaultArgs<ExtArgs>
   admin?: boolean | Prisma.PaymentStatusLog$adminArgs<ExtArgs>
+  enrollment?: boolean | Prisma.EnrollmentDefaultArgs<ExtArgs>
 }
 export type PaymentStatusLogIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  enrollment?: boolean | Prisma.EnrollmentDefaultArgs<ExtArgs>
   admin?: boolean | Prisma.PaymentStatusLog$adminArgs<ExtArgs>
+  enrollment?: boolean | Prisma.EnrollmentDefaultArgs<ExtArgs>
 }
 
 export type $PaymentStatusLogPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "PaymentStatusLog"
   objects: {
-    enrollment: Prisma.$EnrollmentPayload<ExtArgs>
     admin: Prisma.$UserPayload<ExtArgs> | null
+    enrollment: Prisma.$EnrollmentPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -1233,8 +1233,8 @@ readonly fields: PaymentStatusLogFieldRefs;
  */
 export interface Prisma__PaymentStatusLogClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  enrollment<T extends Prisma.EnrollmentDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.EnrollmentDefaultArgs<ExtArgs>>): Prisma.Prisma__EnrollmentClient<runtime.Types.Result.GetResult<Prisma.$EnrollmentPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   admin<T extends Prisma.PaymentStatusLog$adminArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.PaymentStatusLog$adminArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  enrollment<T extends Prisma.EnrollmentDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.EnrollmentDefaultArgs<ExtArgs>>): Prisma.Prisma__EnrollmentClient<runtime.Types.Result.GetResult<Prisma.$EnrollmentPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.

@@ -288,11 +288,11 @@ export type UserWhereInput = {
   dob?: Prisma.StringNullableFilter<"User"> | string | null
   gender?: Prisma.StringNullableFilter<"User"> | string | null
   created_at?: Prisma.DateTimeFilter<"User"> | Date | string
-  enrollments?: Prisma.EnrollmentListRelationFilter
-  reviews?: Prisma.ReviewListRelationFilter
   blogs?: Prisma.BlogListRelationFilter
-  saved_jobs?: Prisma.SavedJobListRelationFilter
+  enrollments?: Prisma.EnrollmentListRelationFilter
   payment_status_changes?: Prisma.PaymentStatusLogListRelationFilter
+  reviews?: Prisma.ReviewListRelationFilter
+  saved_jobs?: Prisma.SavedJobListRelationFilter
 }
 
 export type UserOrderByWithRelationInput = {
@@ -310,11 +310,11 @@ export type UserOrderByWithRelationInput = {
   dob?: Prisma.SortOrderInput | Prisma.SortOrder
   gender?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrder
-  enrollments?: Prisma.EnrollmentOrderByRelationAggregateInput
-  reviews?: Prisma.ReviewOrderByRelationAggregateInput
   blogs?: Prisma.BlogOrderByRelationAggregateInput
-  saved_jobs?: Prisma.SavedJobOrderByRelationAggregateInput
+  enrollments?: Prisma.EnrollmentOrderByRelationAggregateInput
   payment_status_changes?: Prisma.PaymentStatusLogOrderByRelationAggregateInput
+  reviews?: Prisma.ReviewOrderByRelationAggregateInput
+  saved_jobs?: Prisma.SavedJobOrderByRelationAggregateInput
 }
 
 export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -335,11 +335,11 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   dob?: Prisma.StringNullableFilter<"User"> | string | null
   gender?: Prisma.StringNullableFilter<"User"> | string | null
   created_at?: Prisma.DateTimeFilter<"User"> | Date | string
-  enrollments?: Prisma.EnrollmentListRelationFilter
-  reviews?: Prisma.ReviewListRelationFilter
   blogs?: Prisma.BlogListRelationFilter
-  saved_jobs?: Prisma.SavedJobListRelationFilter
+  enrollments?: Prisma.EnrollmentListRelationFilter
   payment_status_changes?: Prisma.PaymentStatusLogListRelationFilter
+  reviews?: Prisma.ReviewListRelationFilter
+  saved_jobs?: Prisma.SavedJobListRelationFilter
 }, "id" | "email">
 
 export type UserOrderByWithAggregationInput = {
@@ -398,11 +398,11 @@ export type UserCreateInput = {
   dob?: string | null
   gender?: string | null
   created_at?: Date | string
-  enrollments?: Prisma.EnrollmentCreateNestedManyWithoutUserInput
-  reviews?: Prisma.ReviewCreateNestedManyWithoutUserInput
   blogs?: Prisma.BlogCreateNestedManyWithoutAuthorInput
-  saved_jobs?: Prisma.SavedJobCreateNestedManyWithoutUserInput
+  enrollments?: Prisma.EnrollmentCreateNestedManyWithoutUserInput
   payment_status_changes?: Prisma.PaymentStatusLogCreateNestedManyWithoutAdminInput
+  reviews?: Prisma.ReviewCreateNestedManyWithoutUserInput
+  saved_jobs?: Prisma.SavedJobCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateInput = {
@@ -420,11 +420,11 @@ export type UserUncheckedCreateInput = {
   dob?: string | null
   gender?: string | null
   created_at?: Date | string
-  enrollments?: Prisma.EnrollmentUncheckedCreateNestedManyWithoutUserInput
-  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutUserInput
   blogs?: Prisma.BlogUncheckedCreateNestedManyWithoutAuthorInput
-  saved_jobs?: Prisma.SavedJobUncheckedCreateNestedManyWithoutUserInput
+  enrollments?: Prisma.EnrollmentUncheckedCreateNestedManyWithoutUserInput
   payment_status_changes?: Prisma.PaymentStatusLogUncheckedCreateNestedManyWithoutAdminInput
+  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutUserInput
+  saved_jobs?: Prisma.SavedJobUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserUpdateInput = {
@@ -441,11 +441,11 @@ export type UserUpdateInput = {
   dob?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gender?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  enrollments?: Prisma.EnrollmentUpdateManyWithoutUserNestedInput
-  reviews?: Prisma.ReviewUpdateManyWithoutUserNestedInput
   blogs?: Prisma.BlogUpdateManyWithoutAuthorNestedInput
-  saved_jobs?: Prisma.SavedJobUpdateManyWithoutUserNestedInput
+  enrollments?: Prisma.EnrollmentUpdateManyWithoutUserNestedInput
   payment_status_changes?: Prisma.PaymentStatusLogUpdateManyWithoutAdminNestedInput
+  reviews?: Prisma.ReviewUpdateManyWithoutUserNestedInput
+  saved_jobs?: Prisma.SavedJobUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateInput = {
@@ -463,11 +463,11 @@ export type UserUncheckedUpdateInput = {
   dob?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gender?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  enrollments?: Prisma.EnrollmentUncheckedUpdateManyWithoutUserNestedInput
-  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutUserNestedInput
   blogs?: Prisma.BlogUncheckedUpdateManyWithoutAuthorNestedInput
-  saved_jobs?: Prisma.SavedJobUncheckedUpdateManyWithoutUserNestedInput
+  enrollments?: Prisma.EnrollmentUncheckedUpdateManyWithoutUserNestedInput
   payment_status_changes?: Prisma.PaymentStatusLogUncheckedUpdateManyWithoutAdminNestedInput
+  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutUserNestedInput
+  saved_jobs?: Prisma.SavedJobUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateManyInput = {
@@ -695,10 +695,10 @@ export type UserCreateWithoutEnrollmentsInput = {
   dob?: string | null
   gender?: string | null
   created_at?: Date | string
-  reviews?: Prisma.ReviewCreateNestedManyWithoutUserInput
   blogs?: Prisma.BlogCreateNestedManyWithoutAuthorInput
-  saved_jobs?: Prisma.SavedJobCreateNestedManyWithoutUserInput
   payment_status_changes?: Prisma.PaymentStatusLogCreateNestedManyWithoutAdminInput
+  reviews?: Prisma.ReviewCreateNestedManyWithoutUserInput
+  saved_jobs?: Prisma.SavedJobCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutEnrollmentsInput = {
@@ -716,10 +716,10 @@ export type UserUncheckedCreateWithoutEnrollmentsInput = {
   dob?: string | null
   gender?: string | null
   created_at?: Date | string
-  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutUserInput
   blogs?: Prisma.BlogUncheckedCreateNestedManyWithoutAuthorInput
-  saved_jobs?: Prisma.SavedJobUncheckedCreateNestedManyWithoutUserInput
   payment_status_changes?: Prisma.PaymentStatusLogUncheckedCreateNestedManyWithoutAdminInput
+  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutUserInput
+  saved_jobs?: Prisma.SavedJobUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutEnrollmentsInput = {
@@ -752,10 +752,10 @@ export type UserUpdateWithoutEnrollmentsInput = {
   dob?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gender?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  reviews?: Prisma.ReviewUpdateManyWithoutUserNestedInput
   blogs?: Prisma.BlogUpdateManyWithoutAuthorNestedInput
-  saved_jobs?: Prisma.SavedJobUpdateManyWithoutUserNestedInput
   payment_status_changes?: Prisma.PaymentStatusLogUpdateManyWithoutAdminNestedInput
+  reviews?: Prisma.ReviewUpdateManyWithoutUserNestedInput
+  saved_jobs?: Prisma.SavedJobUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutEnrollmentsInput = {
@@ -773,10 +773,10 @@ export type UserUncheckedUpdateWithoutEnrollmentsInput = {
   dob?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gender?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutUserNestedInput
   blogs?: Prisma.BlogUncheckedUpdateManyWithoutAuthorNestedInput
-  saved_jobs?: Prisma.SavedJobUncheckedUpdateManyWithoutUserNestedInput
   payment_status_changes?: Prisma.PaymentStatusLogUncheckedUpdateManyWithoutAdminNestedInput
+  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutUserNestedInput
+  saved_jobs?: Prisma.SavedJobUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutPayment_status_changesInput = {
@@ -793,9 +793,9 @@ export type UserCreateWithoutPayment_status_changesInput = {
   dob?: string | null
   gender?: string | null
   created_at?: Date | string
+  blogs?: Prisma.BlogCreateNestedManyWithoutAuthorInput
   enrollments?: Prisma.EnrollmentCreateNestedManyWithoutUserInput
   reviews?: Prisma.ReviewCreateNestedManyWithoutUserInput
-  blogs?: Prisma.BlogCreateNestedManyWithoutAuthorInput
   saved_jobs?: Prisma.SavedJobCreateNestedManyWithoutUserInput
 }
 
@@ -814,9 +814,9 @@ export type UserUncheckedCreateWithoutPayment_status_changesInput = {
   dob?: string | null
   gender?: string | null
   created_at?: Date | string
+  blogs?: Prisma.BlogUncheckedCreateNestedManyWithoutAuthorInput
   enrollments?: Prisma.EnrollmentUncheckedCreateNestedManyWithoutUserInput
   reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutUserInput
-  blogs?: Prisma.BlogUncheckedCreateNestedManyWithoutAuthorInput
   saved_jobs?: Prisma.SavedJobUncheckedCreateNestedManyWithoutUserInput
 }
 
@@ -850,9 +850,9 @@ export type UserUpdateWithoutPayment_status_changesInput = {
   dob?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gender?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  blogs?: Prisma.BlogUpdateManyWithoutAuthorNestedInput
   enrollments?: Prisma.EnrollmentUpdateManyWithoutUserNestedInput
   reviews?: Prisma.ReviewUpdateManyWithoutUserNestedInput
-  blogs?: Prisma.BlogUpdateManyWithoutAuthorNestedInput
   saved_jobs?: Prisma.SavedJobUpdateManyWithoutUserNestedInput
 }
 
@@ -871,9 +871,9 @@ export type UserUncheckedUpdateWithoutPayment_status_changesInput = {
   dob?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gender?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  blogs?: Prisma.BlogUncheckedUpdateManyWithoutAuthorNestedInput
   enrollments?: Prisma.EnrollmentUncheckedUpdateManyWithoutUserNestedInput
   reviews?: Prisma.ReviewUncheckedUpdateManyWithoutUserNestedInput
-  blogs?: Prisma.BlogUncheckedUpdateManyWithoutAuthorNestedInput
   saved_jobs?: Prisma.SavedJobUncheckedUpdateManyWithoutUserNestedInput
 }
 
@@ -891,10 +891,10 @@ export type UserCreateWithoutReviewsInput = {
   dob?: string | null
   gender?: string | null
   created_at?: Date | string
-  enrollments?: Prisma.EnrollmentCreateNestedManyWithoutUserInput
   blogs?: Prisma.BlogCreateNestedManyWithoutAuthorInput
-  saved_jobs?: Prisma.SavedJobCreateNestedManyWithoutUserInput
+  enrollments?: Prisma.EnrollmentCreateNestedManyWithoutUserInput
   payment_status_changes?: Prisma.PaymentStatusLogCreateNestedManyWithoutAdminInput
+  saved_jobs?: Prisma.SavedJobCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutReviewsInput = {
@@ -912,10 +912,10 @@ export type UserUncheckedCreateWithoutReviewsInput = {
   dob?: string | null
   gender?: string | null
   created_at?: Date | string
-  enrollments?: Prisma.EnrollmentUncheckedCreateNestedManyWithoutUserInput
   blogs?: Prisma.BlogUncheckedCreateNestedManyWithoutAuthorInput
-  saved_jobs?: Prisma.SavedJobUncheckedCreateNestedManyWithoutUserInput
+  enrollments?: Prisma.EnrollmentUncheckedCreateNestedManyWithoutUserInput
   payment_status_changes?: Prisma.PaymentStatusLogUncheckedCreateNestedManyWithoutAdminInput
+  saved_jobs?: Prisma.SavedJobUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutReviewsInput = {
@@ -948,10 +948,10 @@ export type UserUpdateWithoutReviewsInput = {
   dob?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gender?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  enrollments?: Prisma.EnrollmentUpdateManyWithoutUserNestedInput
   blogs?: Prisma.BlogUpdateManyWithoutAuthorNestedInput
-  saved_jobs?: Prisma.SavedJobUpdateManyWithoutUserNestedInput
+  enrollments?: Prisma.EnrollmentUpdateManyWithoutUserNestedInput
   payment_status_changes?: Prisma.PaymentStatusLogUpdateManyWithoutAdminNestedInput
+  saved_jobs?: Prisma.SavedJobUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutReviewsInput = {
@@ -969,10 +969,10 @@ export type UserUncheckedUpdateWithoutReviewsInput = {
   dob?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gender?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  enrollments?: Prisma.EnrollmentUncheckedUpdateManyWithoutUserNestedInput
   blogs?: Prisma.BlogUncheckedUpdateManyWithoutAuthorNestedInput
-  saved_jobs?: Prisma.SavedJobUncheckedUpdateManyWithoutUserNestedInput
+  enrollments?: Prisma.EnrollmentUncheckedUpdateManyWithoutUserNestedInput
   payment_status_changes?: Prisma.PaymentStatusLogUncheckedUpdateManyWithoutAdminNestedInput
+  saved_jobs?: Prisma.SavedJobUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutBlogsInput = {
@@ -990,9 +990,9 @@ export type UserCreateWithoutBlogsInput = {
   gender?: string | null
   created_at?: Date | string
   enrollments?: Prisma.EnrollmentCreateNestedManyWithoutUserInput
+  payment_status_changes?: Prisma.PaymentStatusLogCreateNestedManyWithoutAdminInput
   reviews?: Prisma.ReviewCreateNestedManyWithoutUserInput
   saved_jobs?: Prisma.SavedJobCreateNestedManyWithoutUserInput
-  payment_status_changes?: Prisma.PaymentStatusLogCreateNestedManyWithoutAdminInput
 }
 
 export type UserUncheckedCreateWithoutBlogsInput = {
@@ -1011,9 +1011,9 @@ export type UserUncheckedCreateWithoutBlogsInput = {
   gender?: string | null
   created_at?: Date | string
   enrollments?: Prisma.EnrollmentUncheckedCreateNestedManyWithoutUserInput
+  payment_status_changes?: Prisma.PaymentStatusLogUncheckedCreateNestedManyWithoutAdminInput
   reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutUserInput
   saved_jobs?: Prisma.SavedJobUncheckedCreateNestedManyWithoutUserInput
-  payment_status_changes?: Prisma.PaymentStatusLogUncheckedCreateNestedManyWithoutAdminInput
 }
 
 export type UserCreateOrConnectWithoutBlogsInput = {
@@ -1047,9 +1047,9 @@ export type UserUpdateWithoutBlogsInput = {
   gender?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   enrollments?: Prisma.EnrollmentUpdateManyWithoutUserNestedInput
+  payment_status_changes?: Prisma.PaymentStatusLogUpdateManyWithoutAdminNestedInput
   reviews?: Prisma.ReviewUpdateManyWithoutUserNestedInput
   saved_jobs?: Prisma.SavedJobUpdateManyWithoutUserNestedInput
-  payment_status_changes?: Prisma.PaymentStatusLogUpdateManyWithoutAdminNestedInput
 }
 
 export type UserUncheckedUpdateWithoutBlogsInput = {
@@ -1068,9 +1068,9 @@ export type UserUncheckedUpdateWithoutBlogsInput = {
   gender?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   enrollments?: Prisma.EnrollmentUncheckedUpdateManyWithoutUserNestedInput
+  payment_status_changes?: Prisma.PaymentStatusLogUncheckedUpdateManyWithoutAdminNestedInput
   reviews?: Prisma.ReviewUncheckedUpdateManyWithoutUserNestedInput
   saved_jobs?: Prisma.SavedJobUncheckedUpdateManyWithoutUserNestedInput
-  payment_status_changes?: Prisma.PaymentStatusLogUncheckedUpdateManyWithoutAdminNestedInput
 }
 
 export type UserCreateWithoutSaved_jobsInput = {
@@ -1087,10 +1087,10 @@ export type UserCreateWithoutSaved_jobsInput = {
   dob?: string | null
   gender?: string | null
   created_at?: Date | string
-  enrollments?: Prisma.EnrollmentCreateNestedManyWithoutUserInput
-  reviews?: Prisma.ReviewCreateNestedManyWithoutUserInput
   blogs?: Prisma.BlogCreateNestedManyWithoutAuthorInput
+  enrollments?: Prisma.EnrollmentCreateNestedManyWithoutUserInput
   payment_status_changes?: Prisma.PaymentStatusLogCreateNestedManyWithoutAdminInput
+  reviews?: Prisma.ReviewCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutSaved_jobsInput = {
@@ -1108,10 +1108,10 @@ export type UserUncheckedCreateWithoutSaved_jobsInput = {
   dob?: string | null
   gender?: string | null
   created_at?: Date | string
-  enrollments?: Prisma.EnrollmentUncheckedCreateNestedManyWithoutUserInput
-  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutUserInput
   blogs?: Prisma.BlogUncheckedCreateNestedManyWithoutAuthorInput
+  enrollments?: Prisma.EnrollmentUncheckedCreateNestedManyWithoutUserInput
   payment_status_changes?: Prisma.PaymentStatusLogUncheckedCreateNestedManyWithoutAdminInput
+  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutSaved_jobsInput = {
@@ -1144,10 +1144,10 @@ export type UserUpdateWithoutSaved_jobsInput = {
   dob?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gender?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  enrollments?: Prisma.EnrollmentUpdateManyWithoutUserNestedInput
-  reviews?: Prisma.ReviewUpdateManyWithoutUserNestedInput
   blogs?: Prisma.BlogUpdateManyWithoutAuthorNestedInput
+  enrollments?: Prisma.EnrollmentUpdateManyWithoutUserNestedInput
   payment_status_changes?: Prisma.PaymentStatusLogUpdateManyWithoutAdminNestedInput
+  reviews?: Prisma.ReviewUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutSaved_jobsInput = {
@@ -1165,10 +1165,10 @@ export type UserUncheckedUpdateWithoutSaved_jobsInput = {
   dob?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gender?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  enrollments?: Prisma.EnrollmentUncheckedUpdateManyWithoutUserNestedInput
-  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutUserNestedInput
   blogs?: Prisma.BlogUncheckedUpdateManyWithoutAuthorNestedInput
+  enrollments?: Prisma.EnrollmentUncheckedUpdateManyWithoutUserNestedInput
   payment_status_changes?: Prisma.PaymentStatusLogUncheckedUpdateManyWithoutAdminNestedInput
+  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutUserNestedInput
 }
 
 
@@ -1177,19 +1177,19 @@ export type UserUncheckedUpdateWithoutSaved_jobsInput = {
  */
 
 export type UserCountOutputType = {
-  enrollments: number
-  reviews: number
   blogs: number
-  saved_jobs: number
+  enrollments: number
   payment_status_changes: number
+  reviews: number
+  saved_jobs: number
 }
 
 export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  enrollments?: boolean | UserCountOutputTypeCountEnrollmentsArgs
-  reviews?: boolean | UserCountOutputTypeCountReviewsArgs
   blogs?: boolean | UserCountOutputTypeCountBlogsArgs
-  saved_jobs?: boolean | UserCountOutputTypeCountSaved_jobsArgs
+  enrollments?: boolean | UserCountOutputTypeCountEnrollmentsArgs
   payment_status_changes?: boolean | UserCountOutputTypeCountPayment_status_changesArgs
+  reviews?: boolean | UserCountOutputTypeCountReviewsArgs
+  saved_jobs?: boolean | UserCountOutputTypeCountSaved_jobsArgs
 }
 
 /**
@@ -1205,8 +1205,22 @@ export type UserCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensi
 /**
  * UserCountOutputType without action
  */
+export type UserCountOutputTypeCountBlogsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.BlogWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
 export type UserCountOutputTypeCountEnrollmentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.EnrollmentWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountPayment_status_changesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.PaymentStatusLogWhereInput
 }
 
 /**
@@ -1219,22 +1233,8 @@ export type UserCountOutputTypeCountReviewsArgs<ExtArgs extends runtime.Types.Ex
 /**
  * UserCountOutputType without action
  */
-export type UserCountOutputTypeCountBlogsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.BlogWhereInput
-}
-
-/**
- * UserCountOutputType without action
- */
 export type UserCountOutputTypeCountSaved_jobsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.SavedJobWhereInput
-}
-
-/**
- * UserCountOutputType without action
- */
-export type UserCountOutputTypeCountPayment_status_changesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.PaymentStatusLogWhereInput
 }
 
 
@@ -1253,11 +1253,11 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   dob?: boolean
   gender?: boolean
   created_at?: boolean
-  enrollments?: boolean | Prisma.User$enrollmentsArgs<ExtArgs>
-  reviews?: boolean | Prisma.User$reviewsArgs<ExtArgs>
   blogs?: boolean | Prisma.User$blogsArgs<ExtArgs>
-  saved_jobs?: boolean | Prisma.User$saved_jobsArgs<ExtArgs>
+  enrollments?: boolean | Prisma.User$enrollmentsArgs<ExtArgs>
   payment_status_changes?: boolean | Prisma.User$payment_status_changesArgs<ExtArgs>
+  reviews?: boolean | Prisma.User$reviewsArgs<ExtArgs>
+  saved_jobs?: boolean | Prisma.User$saved_jobsArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["user"]>
 
@@ -1314,11 +1314,11 @@ export type UserSelectScalar = {
 
 export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "first_name" | "last_name" | "name" | "email" | "password_hash" | "role" | "org" | "phone" | "photo_url" | "education" | "dob" | "gender" | "created_at", ExtArgs["result"]["user"]>
 export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  enrollments?: boolean | Prisma.User$enrollmentsArgs<ExtArgs>
-  reviews?: boolean | Prisma.User$reviewsArgs<ExtArgs>
   blogs?: boolean | Prisma.User$blogsArgs<ExtArgs>
-  saved_jobs?: boolean | Prisma.User$saved_jobsArgs<ExtArgs>
+  enrollments?: boolean | Prisma.User$enrollmentsArgs<ExtArgs>
   payment_status_changes?: boolean | Prisma.User$payment_status_changesArgs<ExtArgs>
+  reviews?: boolean | Prisma.User$reviewsArgs<ExtArgs>
+  saved_jobs?: boolean | Prisma.User$saved_jobsArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type UserIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -1327,11 +1327,11 @@ export type UserIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensi
 export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "User"
   objects: {
-    enrollments: Prisma.$EnrollmentPayload<ExtArgs>[]
-    reviews: Prisma.$ReviewPayload<ExtArgs>[]
     blogs: Prisma.$BlogPayload<ExtArgs>[]
-    saved_jobs: Prisma.$SavedJobPayload<ExtArgs>[]
+    enrollments: Prisma.$EnrollmentPayload<ExtArgs>[]
     payment_status_changes: Prisma.$PaymentStatusLogPayload<ExtArgs>[]
+    reviews: Prisma.$ReviewPayload<ExtArgs>[]
+    saved_jobs: Prisma.$SavedJobPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -1742,11 +1742,11 @@ readonly fields: UserFieldRefs;
  */
 export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  enrollments<T extends Prisma.User$enrollmentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$enrollmentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$EnrollmentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  reviews<T extends Prisma.User$reviewsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$reviewsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ReviewPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   blogs<T extends Prisma.User$blogsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$blogsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$BlogPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  saved_jobs<T extends Prisma.User$saved_jobsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$saved_jobsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SavedJobPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  enrollments<T extends Prisma.User$enrollmentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$enrollmentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$EnrollmentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   payment_status_changes<T extends Prisma.User$payment_status_changesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$payment_status_changesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PaymentStatusLogPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  reviews<T extends Prisma.User$reviewsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$reviewsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ReviewPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  saved_jobs<T extends Prisma.User$saved_jobsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$saved_jobsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SavedJobPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2183,6 +2183,30 @@ export type UserDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Internal
 }
 
 /**
+ * User.blogs
+ */
+export type User$blogsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Blog
+   */
+  select?: Prisma.BlogSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Blog
+   */
+  omit?: Prisma.BlogOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.BlogInclude<ExtArgs> | null
+  where?: Prisma.BlogWhereInput
+  orderBy?: Prisma.BlogOrderByWithRelationInput | Prisma.BlogOrderByWithRelationInput[]
+  cursor?: Prisma.BlogWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.BlogScalarFieldEnum | Prisma.BlogScalarFieldEnum[]
+}
+
+/**
  * User.enrollments
  */
 export type User$enrollmentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -2204,6 +2228,30 @@ export type User$enrollmentsArgs<ExtArgs extends runtime.Types.Extensions.Intern
   take?: number
   skip?: number
   distinct?: Prisma.EnrollmentScalarFieldEnum | Prisma.EnrollmentScalarFieldEnum[]
+}
+
+/**
+ * User.payment_status_changes
+ */
+export type User$payment_status_changesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the PaymentStatusLog
+   */
+  select?: Prisma.PaymentStatusLogSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the PaymentStatusLog
+   */
+  omit?: Prisma.PaymentStatusLogOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.PaymentStatusLogInclude<ExtArgs> | null
+  where?: Prisma.PaymentStatusLogWhereInput
+  orderBy?: Prisma.PaymentStatusLogOrderByWithRelationInput | Prisma.PaymentStatusLogOrderByWithRelationInput[]
+  cursor?: Prisma.PaymentStatusLogWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.PaymentStatusLogScalarFieldEnum | Prisma.PaymentStatusLogScalarFieldEnum[]
 }
 
 /**
@@ -2231,30 +2279,6 @@ export type User$reviewsArgs<ExtArgs extends runtime.Types.Extensions.InternalAr
 }
 
 /**
- * User.blogs
- */
-export type User$blogsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the Blog
-   */
-  select?: Prisma.BlogSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the Blog
-   */
-  omit?: Prisma.BlogOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.BlogInclude<ExtArgs> | null
-  where?: Prisma.BlogWhereInput
-  orderBy?: Prisma.BlogOrderByWithRelationInput | Prisma.BlogOrderByWithRelationInput[]
-  cursor?: Prisma.BlogWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.BlogScalarFieldEnum | Prisma.BlogScalarFieldEnum[]
-}
-
-/**
  * User.saved_jobs
  */
 export type User$saved_jobsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -2276,30 +2300,6 @@ export type User$saved_jobsArgs<ExtArgs extends runtime.Types.Extensions.Interna
   take?: number
   skip?: number
   distinct?: Prisma.SavedJobScalarFieldEnum | Prisma.SavedJobScalarFieldEnum[]
-}
-
-/**
- * User.payment_status_changes
- */
-export type User$payment_status_changesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the PaymentStatusLog
-   */
-  select?: Prisma.PaymentStatusLogSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the PaymentStatusLog
-   */
-  omit?: Prisma.PaymentStatusLogOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.PaymentStatusLogInclude<ExtArgs> | null
-  where?: Prisma.PaymentStatusLogWhereInput
-  orderBy?: Prisma.PaymentStatusLogOrderByWithRelationInput | Prisma.PaymentStatusLogOrderByWithRelationInput[]
-  cursor?: Prisma.PaymentStatusLogWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.PaymentStatusLogScalarFieldEnum | Prisma.PaymentStatusLogScalarFieldEnum[]
 }
 
 /**
