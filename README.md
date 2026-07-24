@@ -1,91 +1,126 @@
-# Next.js
+# SkandaPlus
 
-A modern Next.js 15 application built with TypeScript and Tailwind CSS.
+An AI and IT training institute platform built with Next.js — course catalog, blog, job board, enrollment and payment tracking, and an admin dashboard for managing content and applications.
 
-## 🚀 Features
 
-- **Next.js 15** - Latest version with improved performance and features
-- **React 19** - Latest React version with enhanced capabilities
-- **Tailwind CSS** - Utility-first CSS framework for rapid UI development
+## Features
 
-## 🛠️ Installation
+- **Course catalog** — browse AI courses and corporate training programs, filterable by category and level
+- **Blog** — published articles with an admin approval workflow (pending / published / rejected)
+- **Careers** — job listings, applications, and saved jobs for candidates
+- **Enrollments & payments** — course enrollment with payment status tracking
+- **Admin dashboard** — manage blogs, courses, course materials, and job postings
+- **Authentication** — session-based login for users and admins
 
-1. Install dependencies:
-  ```bash
-  npm install
-  # or
-  yarn install
-  ```
+## Tech Stack
 
-2. Start the development server:
-  ```bash
-  npm run dev
-  # or
-  yarn dev
-  ```
-3. Open [http://localhost:4028](http://localhost:4028) with your browser to see the result.
+- **Framework:** Next.js 15 (App Router), React 19
+- **Styling:** Tailwind CSS
+- **Database:** PostgreSQL via Prisma ORM
+- **File storage:** Supabase Storage (course covers, blog images)
+- **Auth:** JWT-based sessions (`jose`), bcrypt password hashing
+- **Email:** Nodemailer
 
-## 📁 Project Structure
+## Getting Started
+
+### Prerequisites
+
+- Node.js 20+
+- A PostgreSQL database (e.g. [Supabase](https://supabase.com))
+
+### Installation
+
+1. Clone the repo:
+   ```bash
+   git clone https://github.com/Balamurugan-1511/new-static.git
+   cd new-static
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+   This also runs `prisma generate` automatically via `postinstall`.
+
+3. Create a `.env` file in the project root (see [Environment Variables](#environment-variables) below).
+
+4. Push the database schema:
+   ```bash
+   npx prisma db push
+   ```
+
+5. (Optional) Seed the database with sample data:
+   ```bash
+   npm run seed
+   ```
+
+6. Start the development server:
+   ```bash
+   npm run dev
+   ```
+   Open [http://localhost:4029](http://localhost:4029) in your browser.
+
+## Environment Variables
+
+Create a `.env` file with the following (never commit this file):
+
+```env
+DATABASE_URL=
+JWT_SECRET=
+SMTP_HOST=
+SMTP_PORT=
+SMTP_USER=
+SMTP_PASS=
+SMTP_FROM=
+ADMIN_EMAILS=
+```
+
+> **Note:** Use your database provider's *connection pooling* URL for `DATABASE_URL` if deploying to a serverless platform (Netlify, Vercel) — direct connection strings can hit connection limits under serverless load.
+
+## Available Scripts
+
+| Script | Description |
+|---|---|
+| `npm run dev` | Start the development server on port 4029 |
+| `npm run build` | Build for production |
+| `npm start` | Start the production server |
+| `npm run lint` | Run ESLint |
+| `npm run lint:fix` | Run ESLint and auto-fix issues |
+| `npm run format` | Format code with Prettier |
+| `npm run seed` | Seed the database |
+
+## Project Structure
 
 ```
-nextjs/
-├── public/             # Static assets
+skandaplus/
+├── prisma/
+│   ├── schema.prisma      # Database schema
+│   └── seed.js            # Seed script
+├── public/
+│   └── assets/            # Static images and payment QR codes
 ├── src/
-│   ├── app/            # App router components
-│   │   ├── layout.tsx  # Root layout component
-│   │   └── page.tsx    # Main page component
-│   ├── components/     # Reusable UI components
-│   ├── styles/         # Global styles and Tailwind configuration
-├── next.config.mjs     # Next.js configuration
-├── package.json        # Project dependencies and scripts
-├── postcss.config.js   # PostCSS configuration
-└── tailwind.config.js  # Tailwind CSS configuration
-
+│   ├── app/                # App Router pages and API routes
+│   │   ├── api/            # API endpoints (admin, courses, blogs, jobs, etc.)
+│   │   ├── admin/          # Admin dashboard pages
+│   │   ├── dashboard/      # User dashboard
+│   │   └── ...             # Public pages (courses, blog, careers, about, etc.)
+│   ├── components/         # Reusable UI components
+│   ├── lib/                 # Auth, mailer, payment config, Prisma client
+│   ├── middleware.js        # Route middleware
+│   └── styles/               # Global styles and Tailwind config
+├── next.config.mjs
+└── package.json
 ```
 
-## 🧩 Page Editing
+## Deployment
 
-You can start editing the page by modifying `src/app/page.tsx`. The page auto-updates as you edit the file.
+This project is configured for deployment on **Netlify** using the Next.js Runtime, which supports API routes, server-side rendering, and Prisma out of the box.
 
-## 🎨 Styling
+1. Connect the repository to Netlify.
+2. Set build command to `npm run build`.
+3. Add all environment variables listed above in **Site settings → Environment variables**.
+4. Deploy.
 
-This project uses Tailwind CSS for styling with the following features:
-- Utility-first approach for rapid development
-- Custom theme configuration
-- Responsive design utilities
-- PostCSS and Autoprefixer integration
+## License
 
-## 📦 Available Scripts
-
-- `npm run dev` - Start development server on port 4028
-- `npm run build` - Build the application for production
-- `npm run start` - Start the development server
-- `npm run serve` - Start the production server
-- `npm run lint` - Run ESLint to check code quality
-- `npm run lint:fix` - Fix ESLint issues automatically
-- `npm run format` - Format code with Prettier
-
-## 📱 Deployment
-
-Build the application for production:
-
-  ```bash
-  npm run build
-  ```
-
-## 📚 Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial
-
-You can check out the [Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## 🙏 Acknowledgments
-
-- Built with [Rocket.new](https://rocket.new)
-- Powered by Next.js and React
-- Styled with Tailwind CSS
-
-Built with ❤️ on Rocket.new
+Private — all rights reserved.
